@@ -178,7 +178,7 @@
 <body>
 
   <header>
-    <div class="logo">LEANINE</div>
+    <div class="logo">SLEANINE</div>
     <input type="text" class="search-box" placeholder="Search now...">
     <div class="cart">🛒</div>
   </header>
