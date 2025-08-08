@@ -95,6 +95,26 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 1rem;
+    }
+    .menu-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      background: #eee;
+      margin-bottom: 0.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .menu a:hover .menu-img {
+      transform: scale(1.08);
+      border-color: #f39c12;
     }
 
     .products {
@@ -111,6 +131,12 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 1.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .product-list {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     .product-card {
@@ -166,11 +192,73 @@
 
     @media (max-width: 600px) {
       .menu {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        overflow-x: auto !important;
+        overflow-y: hidden;
+        white-space: nowrap;
+        gap: 1rem;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+      }
+      .menu a {
+        min-width: 90px;
+        flex: 0 0 auto;
+        font-size: 0.9rem;
+        display: inline-flex;
         align-items: center;
+        justify-content: center;
+        padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+        background: transparent;
+        z-index: 1;
+      }
+      .menu-img {
+        width: 40px;
+        height: 40px;
+        display: block;
+      }
+      /* Hide scroll bar but keep scrollable */
+      .menu::-webkit-scrollbar {
+        display: none;
+      }
+      .menu::-webkit-scrollbar {
+        height: 6px;
+        background: #222;
+      }
+      .menu::-webkit-scrollbar-thumb {
+        background: #444;
+        border-radius: 4px;
+      }
+      .menu a {
+        min-width: 80px;
+        flex: 0 0 auto;
+        font-size: 0.9rem;
+      }
+      .menu-img {
+        width: 40px;
+        height: 40px;
       }
       .search-box {
         width: 100px;
+      }
+      .product-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      html, body {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+      header, .hero, .menu, .products, footer {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+      .hero {
+        background-size: cover;
       }
     }
   </style>
@@ -190,11 +278,26 @@
   </section>
 
   <nav class="menu">
-    <a href="#" id="newArrivalsBtn">New Arrivals</a>
-    <a href="#" id="shirtsBtn">Shirts</a>
-    <a href="#" id="hoodiesBtn">Hoodies</a>
-    <a href="#" id="tshirtsBtn">T-Shirts</a>
-    <a href="#" id="customBtn">Custom Prints</a>
+    <a href="#" id="newArrivalsBtn">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=facearea&w=60&h=60&mask=circle" alt="New Arrivals" class="menu-img">
+      <div>New Arrivals</div>
+    </a>
+    <a href="#" id="shirtsBtn">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=facearea&w=60&h=60&mask=circle" alt="Shirts" class="menu-img">
+      <div>Shirts</div>
+    </a>
+    <a href="#" id="hoodiesBtn">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=60&h=60&mask=circle" alt="Hoodies" class="menu-img">
+      <div>Hoodies</div>
+    </a>
+    <a href="#" id="tshirtsBtn">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=facearea&w=60&h=60&mask=circle" alt="T-Shirts" class="menu-img">
+      <div>T-Shirts</div>
+    </a>
+    <a href="#" id="customBtn">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=facearea&w=60&h=60&mask=circle" alt="Custom Prints" class="menu-img">
+      <div>Custom Prints</div>
+    </a>
   </nav>
 
   <section class="products">
